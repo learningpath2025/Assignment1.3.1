@@ -17,6 +17,13 @@ namespace Assignment1._3._1
                 {
                     choice = MenuChoice();
 
+                    if (choice == "4")
+                    {
+                        continueProgram = false;
+                        Console.WriteLine("Exiting the program.");
+                        break;
+                    }
+
                     switch (choice)
                     {
                         case "1":
@@ -30,10 +37,6 @@ namespace Assignment1._3._1
                         case "3":
                             double rectangleArea = AreaOfRectangle();
                             Console.WriteLine($"Area of the rectangle is: {rectangleArea}");
-                            break;
-                        case "4":
-                            continueProgram = false;
-                            Console.WriteLine("Exiting the program.");
                             break;
                         default:
                             Console.WriteLine("Invalid choice. Please select a valid operation.");
