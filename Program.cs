@@ -28,14 +28,29 @@ namespace Assignment1._3._1
                     {
                         case "1":
                             double triangleArea = AreaOfTriangle();
+                            if (triangleArea == -1)
+                            {
+                                Console.WriteLine("Invalid input for triangle dimensions. Please enter positive values.");
+                                break;
+                            }
                             Console.WriteLine($"Area of the triangle is: {triangleArea}");
                             break;
                         case "2":
                             double squareArea = AreaOfSquare();
+                            if (squareArea == -1)
+                            {
+                                Console.WriteLine("Invalid input for square dimensions. Please enter positive values.");
+                                break;
+                            }
                             Console.WriteLine($"Area of the square is: {squareArea}");
                             break;
                         case "3":
                             double rectangleArea = AreaOfRectangle();
+                            if (rectangleArea == -1)
+                            {
+                                Console.WriteLine("Invalid input for rectangle dimensions. Please enter positive values.");
+                                break;
+                            }
                             Console.WriteLine($"Area of the rectangle is: {rectangleArea}");
                             break;
                         default:
@@ -95,12 +110,22 @@ namespace Assignment1._3._1
             return choice;
         }
 
+        static bool IsPositive(double number)
+        {
+            return number > 0;
+        }
+
         static double AreaOfTriangle()
         {
             Console.WriteLine("Enter base length of the triangle:");
             double triangleBase = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter height of the triangle:");
             double triangleHeight = Convert.ToDouble(Console.ReadLine());
+
+            if (!IsPositive(triangleBase) || !IsPositive(triangleHeight))
+            {
+                return -1;
+            }
             return 0.5 * triangleBase * triangleHeight;
         }
 
@@ -108,6 +133,11 @@ namespace Assignment1._3._1
         {
             Console.WriteLine("Enter side length of the square:");
             double squareSide = Convert.ToDouble(Console.ReadLine());
+
+            if (!IsPositive(squareSide))
+            {
+               return -1; 
+            }
             return squareSide * squareSide;
         }
 
@@ -117,6 +147,11 @@ namespace Assignment1._3._1
             double rectangleLength = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter breadth of the rectangle:");
             double rectangleBredth = Convert.ToDouble(Console.ReadLine());
+
+            if (!IsPositive(rectangleLength) || !IsPositive(rectangleBredth))
+            {
+                return -1;
+            }
             return rectangleLength * rectangleBredth;
         }
 
